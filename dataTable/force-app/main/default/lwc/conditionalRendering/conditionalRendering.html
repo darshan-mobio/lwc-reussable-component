@@ -1,0 +1,26 @@
+<template>
+    <lightning-card title="Filters" icon-name="standard:calibration">
+        <div class="slds-m-horizontal_medium">
+            <h1>Rating</h1>
+            <template if:true={ratings.data}>
+                <template for:each={ratings.data.values} for:item="rating">
+                    <lightning-input key={rating.value} label={rating.label} data-filter="ratings" data-value={rating.value}
+                        type="checkbox" onchange={handleOnChange}></lightning-input>
+                </template>
+            </template>
+           
+        </div>
+    </lightning-card>
+Selected Value - {selectVal} <br>
+    <template if:true={isSelectHot}>
+        Account Rating is Hot ...
+    </template>
+    <template if:true={isSelectWarm}>
+        Account Rating is Warm ...
+    </template>
+    <template if:true={isSelectCold}>
+        Account Rating is Cold ...
+    </template>
+
+
+</template>

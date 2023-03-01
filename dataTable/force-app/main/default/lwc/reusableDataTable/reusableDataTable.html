@@ -1,0 +1,51 @@
+<template>
+    <lightning-layout multiple-rows>
+        <lightning-layout-item size="6" padding="around-small"></lightning-layout-item>
+        <lightning-layout-item size="6" padding="around-small">
+            <lightning-input type="search" label="Search Account" onchange={handleSearch}></lightning-input>
+        </lightning-layout-item>
+    </lightning-layout>
+    <div>
+        <table class="slds-table slds-table_cell-buffer slds-table_fixed-layout slds-max-medium-table_stacked-horizontal slds-table_bordered">
+            <thead>
+                
+                <tr class="slds-text-title_caps slds-box slds-theme_shade" style="text-transform:none;">
+                    <template for:each={columns} for:item="colm">    
+                        
+                        <template for:each={colm} for:item="col">
+                            <th key={col.id} class="slds-cell-wrap slds-size_2-of-24"><a name={col.value} href="javascript:void(0);" onclick={sortRecs}>{col.value}</a></th>
+                        </template>
+                    </template>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <!-- <template for:each={data} for:item="tdata" for:index="index">
+                    <tr  key={tdata.Id}>
+                        <template for:each={keyListValue} for:item="tdt" >
+                            <td key={tdt}>
+                                {tdata.tdt}
+                                
+                            </td>
+                        </template>
+                    </tr>
+                </template> -->
+                <template for:each={data} for:item="rec" for:index="index">
+                    <tr key={rec.Id} data-id={rec.Id} >
+                        <template for:each={rec.keyItem} for:item="item" >
+                            <td key={item}>
+                                <div>
+                                    <template if:true={item.value}>
+                                        <span>{item.value}</span>
+                                    </template>
+                                </div>
+                            </td>
+                        </template>
+                    </tr>
+                </template>
+
+
+            </tbody>
+        </table>
+    </div>
+</template>

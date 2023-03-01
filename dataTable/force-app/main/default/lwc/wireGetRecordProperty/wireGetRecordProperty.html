@@ -1,0 +1,40 @@
+<template>
+    <div class="slds-m-around_large">
+        <h1>Helloo</h1>
+        <lightning-input label="Type Here" required value={inputText} onchange={handleClick}></lightning-input>
+        <p>{greeting}</p>
+        <p>{inputText}</p>
+        <p>
+            <lightning-button label="Click me" value="ClickMe" onclick={handleSubmit}></lightning-button>
+        </p>
+    </div>
+    <div class="slds-m-around_large">
+        <template for:each={result} for:item="contact">
+            <p key={contact.Id}>
+                {contact.Id}
+            </p>
+        </template>
+    </div>
+    <!--<div>Lifecycle hooks – Callback- LWC</div>-->
+    <!--<lightning-card class="slds-m-around_medium">
+    <div class="slds-grid">
+        
+        <div class="slds-col slds-size_1-of-3">
+            <lightning-formatted-text value={name} class="slds-p-around_small slds-text-heading_large"></lightning-formatted-text>
+        </div>
+        <div class="slds-col slds-size_1-of-3">
+            <lightning-formatted-text value={email} class="slds-p-around_small slds-text-heading_large"></lightning-formatted-text>
+        </div>
+        <div class="slds-col slds-size_1-of-3">
+            <lightning-formatted-text value={phone} class="slds-p-around_small slds-text-heading_large"></lightning-formatted-text>
+        </div>
+    </div>
+</lightning-card>-->
+<!--<template if:true={account.data}>
+    <div class="slds-m-around_medium">
+        <p>Account Name: {name}</p>
+        <p>Email: {email}</p>
+        <p>Phone: {phone}</p>
+    </div>
+</template>-->
+</template>
